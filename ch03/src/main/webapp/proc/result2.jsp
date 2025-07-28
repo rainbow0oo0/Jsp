@@ -2,6 +2,7 @@
 <%
 
 	// 전송 데이터 수신
+	
 	String queryString = request.getQueryString();
 	String uid = request.getParameter("uid");
 	String name = request.getParameter("name");
