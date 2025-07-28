@@ -5,7 +5,7 @@
 	String queryString = request.getQueryString();
 	String uid = request.getParameter("uid");
 	String name = request.getParameter("name");
-	String age = request.getParameter("birth");
+	String birth = request.getParameter("birth");
 	
 
 %>
