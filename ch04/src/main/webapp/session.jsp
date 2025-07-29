@@ -1,31 +1,29 @@
-<%@page import="vo.UserVO"%>
+<%@page import="vo.User1VO"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	
-	// 자동 로그인 여부 확인
+// 자동 로그인 여부 확인
 	Cookie[] cookies = request.getCookies();
 
 	if(cookies != null){
 		for(Cookie cookie : cookies){
-			
-			if(cookie.getName().equals("auto")){
-				
-				String id = cookie.getValue();
-				
-				// 사용자 객체 생성
-				UserVO vo = new UserVO();
-				vo.setId(id);
-				
-				// 세션 처리
-				session.setAttribute("sessUser", vo);
-				
-				// 로그인 성공 페이지 이동
-				response.sendRedirect("./proc/sessionSuccess.jsp");
-				return; // 처리종료
-			}
+	
+	if(cookie.getName().equals("auto")){
+		
+		String id = cookie.getValue();
+		
+		// 사용자 객체 생성
+		User1VO vo = new User1VO();
+		vo.setId(id);
+		
+		// 세션 처리
+		session.setAttribute("sessUser", vo);
+		
+		// 로그인 성공 페이지 이동
+		response.sendRedirect("./proc/sessionSuccess.jsp");
+		return; // 처리종료
+	}
 		}
 	}
-
 %>
 
 

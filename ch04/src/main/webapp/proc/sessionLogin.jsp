@@ -1,8 +1,7 @@
-<%@page import="vo.UserVO"%>
+<%@page import="vo.User1VO"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-
-	// 전송 데이터 수신
+// 전송 데이터 수신
 	String id = request.getParameter("id");
 	String pw = request.getParameter("pw");
 	String auto = request.getParameter("auto");
@@ -13,10 +12,10 @@
 
 	
 	// 데이터베이스 사용자 조회 후 사용자 객체 생성
-	UserVO vo = null;
+	User1VO vo = null;
 	
 	if(id.equals("abc") && pw.equals("1234")){
-		vo = new UserVO();
+		vo = new User1VO();
 		vo.setId(id);
 		vo.setPw(pw);
 		vo.setName("김유신");
@@ -27,13 +26,13 @@
 		
 		// 자동로그인 처리
 		if(auto.equals("true")){
-			
-			// 사용자 아이디로 auto 쿠키 생성
-			Cookie autoCookie = new Cookie("auto", id);
-			autoCookie.setMaxAge(60 * 60 * 24 * 7); // 7일			
-			autoCookie.setPath("/"); // 모든 경로에서 쿠키 유효
-			
-			response.addCookie(autoCookie);
+	
+	// 사용자 아이디로 auto 쿠키 생성
+	Cookie autoCookie = new Cookie("auto", id);
+	autoCookie.setMaxAge(60 * 60 * 24 * 7); // 7일			
+	autoCookie.setPath("/"); // 모든 경로에서 쿠키 유효
+	
+	response.addCookie(autoCookie);
 		}
 		
 		
@@ -48,6 +47,4 @@
 		session.setAttribute("sessUser", vo);
 		
 	}
-
-
 %>

@@ -1,8 +1,8 @@
-<%@page import="vo.UserVO"%>
+<%@page import="vo.User1VO"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	// 현재 세선(클라이언트) 사용자 객체 가져오기
-	UserVO sessUser = (UserVO) session.getAttribute("sessUser");	
+// 현재 세선(클라이언트) 사용자 객체 가져오기
+	User1VO sessUser = (User1VO) session.getAttribute("sessUser");	
 
 	// 로그인 하지 않고 접근하면
 	if(sessUser == null){
@@ -10,9 +10,6 @@
 		
 		return; // 처리 종료
 	}
-	
-	
-	
 %>
 <!DOCTYPE html>
 <html>
