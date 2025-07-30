@@ -16,6 +16,8 @@
   limitations under the License.
 --><!-- The contents of this file will be loaded for each web application --><Context>
 
+<Context allowCasualMultipartParsing="true">
+
     <!-- Default set of monitored resources. If one of these changes, the    -->
     <!-- web application will be reloaded.                                   -->
     <WatchedResource>WEB-INF/web.xml</WatchedResource>
@@ -26,4 +28,20 @@
     <!--
     <Manager pathname="SESSIONS.ser" />
     -->
+    <!-- WAS Connection "SESSIONS.ser" -->
+    <Resource
+    	name="jdbc/rainbow0oo0"
+    	auth="Container"
+    	type="javax.sql.DataSource"
+    	driverClassName="oracle.jdbc.driver.OracleDriver"
+    	url="jdbc:oracle:thin:@localhost:1521:xe"
+    	username="rainbow0oo0"
+    	password="1234"
+    	maxTotal="13"
+    	maxIdle="13"
+    	maxWaitMillis="3000"        
+    />
+    
+    
+    
 </Context>

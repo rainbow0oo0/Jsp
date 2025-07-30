@@ -1,4 +1,4 @@
-<%@page import="vo.User1VO"%>
+<%@page import="vo.UserVO"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 // 전송 데이터 수신
@@ -12,10 +12,10 @@
 
 	
 	// 데이터베이스 사용자 조회 후 사용자 객체 생성
-	User1VO vo = null;
+	UserVO vo = null;
 	
 	if(id.equals("abc") && pw.equals("1234")){
-		vo = new User1VO();
+		vo = new UserVO();
 		vo.setId(id);
 		vo.setPw(pw);
 		vo.setName("김유신");

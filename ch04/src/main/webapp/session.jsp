@@ -1,4 +1,4 @@
-<%@page import="vo.User1VO"%>
+<%@page import="vo.UserVO"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 // 자동 로그인 여부 확인
@@ -12,7 +12,7 @@
 		String id = cookie.getValue();
 		
 		// 사용자 객체 생성
-		User1VO vo = new User1VO();
+		UserVO vo = new UserVO();
 		vo.setId(id);
 		
 		// 세션 처리
