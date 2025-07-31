@@ -1,15 +1,12 @@
-<%@page import="javax.naming.InitialContext"%>
 <%@page import="vo.CustomerDTO"%>
-<%@page import="javax.sql.DataSource"%>
-<%@page import="javax.naming.spi.InitialContextFactory"%>
-<%@page import="javax.naming.Context"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.List"%>
-<%@page import="vo.User1VO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="java.sql.DriverManager"%>
+<%@page import="javax.sql.DataSource"%>
+<%@page import="javax.naming.InitialContext"%>
+<%@page import="javax.naming.Context"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
@@ -76,7 +73,7 @@
 				<td><%= customer.getName() %></td>
 				<td><%= customer.getHp() %></td>
 				<td><%= customer.getAddress() %></td>
-				<td><%= customer.getRadte().substring(0, 10) %></td>
+				<td><%= customer.getRdate().substring(0, 10) %></td>
 				<td>
 					<!-- 수정하고자 하는 사용자 아이디를 modify.jsp로 전송 -->
 					<a href="/ch05/customer/modify.jsp?cid<%= customer.getCid()%>">수정</a>

@@ -1,6 +1,6 @@
 package vo;
 
-// DTO(Data Transfer object) 객체 - 컴포넌트간 데이터 이동에 사용되는 객체
+// DTO(Data Transfer Object) 객체 - 컴포넌트간 데이터 이동에 사용되는 객체 
 public class CustomerDTO {
 	
 	private String cid;
@@ -8,7 +8,6 @@ public class CustomerDTO {
 	private String hp;
 	private String address;
 	private String rdate;
-	
 	
 	public String getCid() {
 		return cid;
@@ -23,6 +22,11 @@ public class CustomerDTO {
 		this.name = name;
 	}
 	public String getHp() {
+		
+		if(hp == null) {
+			return "없음";
+		}		
+		
 		return hp;
 	}
 	public void setHp(String hp) {
@@ -34,7 +38,7 @@ public class CustomerDTO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getRadte() {
+	public String getRdate() {
 		return rdate;
 	}
 	public void setRdate(String rdate) {
@@ -44,9 +48,5 @@ public class CustomerDTO {
 	public String toString() {
 		return "CustomerDTO [cid=" + cid + ", name=" + name + ", hp=" + hp + ", address=" + address + ", rdate=" + rdate
 				+ "]";
-	}	
-	
-	
-	
-
+	}
 }
