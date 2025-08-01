@@ -24,10 +24,10 @@ public class ModifyController extends HttpServlet {
 		String user_id = req.getParameter("user_id");
 		
 		// 수정 데이터 조회
-		User1DTO user1dto = service.findById(user_id);
+		User1DTO user1DTO = service.findById(user_id);
 		
 		// request 객체로 조회 데이터 공유
-		req.setAttribyte("user1DTO", user1DTO);
+		req.setAttribute("user1DTO", user1DTO);
 		
 		// 포워드
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/user1/modify.jsp");

@@ -9,7 +9,7 @@
 	String user_id = request.getParameter("user_id");
 
 	String host = "jdbc:oracle:thin:@localhost:1521:xe"; 
-	String user = "rainbow";
+	String user = "rainbow0oo0";
 	String pass = "1234";
 	
 	// 수정할 사용자 객체
