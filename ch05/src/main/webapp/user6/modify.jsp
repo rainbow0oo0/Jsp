@@ -6,83 +6,87 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	// user6
-	String id = request.getParameter("id");
-
+	String name = request.getParameter("name");
+	
 	String host = "jdbc:oracle:thin:@localhost:1521:xe"; 
 	String user = "rainbow0oo0";
 	String pass = "1234";
 	
 	User6VO user6 = null;
 	
-	try{
+	try {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection conn = DriverManager.getConnection(host, user, pass);
 		
-		String sql = "SELECT * FROM USER6 WHERE ID = ?";
+		String sql = "SELECT * FROM USER6 WHERE NAME = ?";
 		PreparedStatement psmt = conn.prepareStatement(sql);
-		psmt.setString(1, id);
+		psmt.setString(1, name);
 		
 		ResultSet rs = psmt.executeQuery();
 		
 		if(rs.next()){
 			user6 = new User6VO();
-			user6.setId(rs.getInt(1));
-			user6.setName(rs.getString(2));
+			user6.setName(rs.getString(1));
+			user6.setGender(rs.getString(2));
 			user6.setAge(rs.getInt(3));
-			user6.setEmail(rs.getString(4));
+			user6.setAddr(rs.getString(4));
+			
 		}
 		
 		rs.close();
 		psmt.close();
-		conn.close();		
+		conn.close();
+		
 		
 	}catch(Exception e){
 		e.printStackTrace();
 	}
 
+
 %>
 
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>user::modify</title>
-	</head>
-	<body>
-		<h3>User6 수정</h3>
-		
-		<a href="../jdbc.jsp">처음으로</a>
-		<a href="./list.jsp">목록이동</a>
+<head>
+	<meta charset="UTF-8">
+	<title>user6:modify</title>
+</head>
+<body>
+	<h3>User6 수정</h3>
 	
-		<form action="./proc/modify.jsp" method="post">
-			<table border="1">
-				<tr>
-					<td>아이디</td>
-					<td><input type="text" name="id" readonly value="<%= user6.getId() %>" placeholder="아이디 입력"/></td>
-				</tr>
-				
-				<tr>
-					<td>이름</td>
-					<td><input type="text" name="name" value="<%= user6.getName() %>" placeholder="이름 입력"/></td>
-				</tr>
-				
-				<tr>
-					<td>나이</td>
-					<td><input type="text" name="age" value="<%= user6.getAge() %>" placeholder="나이 입력"/></td>
-				</tr>
-				
-				<tr>
-					<td>이메일</td>
-					<td><input type="text" name="email" value="<%= user6.getEmail() %>" placeholder="이메일 입력"/></td>
-				</tr>
-				
-				<tr>					
-					<td colspan="2" align="right">
-						<input type="submit" value="수정하기"/>
-					</td>
-				</tr>	
+	<a href="../jdbc.jsp">처음으로</a>
+	<a href="./list.jsp">목록이동</a>
+	
+	<form action="./proc/modify.jsp" method="post">
+		<table border="1">
+			<tr>
+				<td>이름</td>
+				<td><input type="text" name="name" readonly value="<%= user6.getName() %>" placeholder="아이디 입력"></td>
+			</tr>
 			
-			</table>		
-		</form>	
-	</body>
+			<tr>
+				<td>성별</td>
+				<td><input type="text" name="gender" value="<%= user6.getGender() %>" placeholder="성별 입력"></td>
+			</tr>
+			
+			<tr>
+				<td>나이</td>
+				<td><input type="number" name="age"  value="<%= user6.getAge() %>" placeholder="나이 입력"></td>
+			</tr>
+							
+			<tr>
+				<td>주소</td>
+				<td><input type="text" name="addr" value="<%= user6.getAddr() %>" placeholder="주소 입력"></td>
+			</tr>		
+			
+			<tr>
+				<td colspan="2" align="right">
+					<input type="submit" value="수정하기"/>
+				</td>
+			</tr>	
+		
+		
+		</table>		
+	</form>			
+</body>
 </html>

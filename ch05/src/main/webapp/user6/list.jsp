@@ -7,7 +7,6 @@
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	
 	// user6
 	String host = "jdbc:oracle:thin:@localhost:1521:xe"; 
 	String user = "rainbow0oo0";
@@ -27,10 +26,10 @@
 		while(rs.next()){
 			
 			User6VO vo = new User6VO();
-			vo.setId(rs.getInt(1));
-			vo.setName(rs.getString(2));
+			vo.setName(rs.getString(1));
+			vo.setGender(rs.getString(2));
 			vo.setAge(rs.getInt(3));
-			vo.setEmail(rs.getString(4));
+			vo.setAddr(rs.getString(4));
 			
 			users.add(vo);			
 			
@@ -57,30 +56,28 @@
 		
 		<table border="1">
 			<tr>
-				<td>아이디</td>
 				<td>이름</td>
+				<td>성별</td>
 				<td>나이</td>
-				<td>이메일</td>
+				<td>주소</td>
 			</tr>
 			
 			<% for(User6VO user6VO : users){ %>
 			<tr>
-				<td><%= user6VO.getId() %></td>
 				<td><%= user6VO.getName() %></td>
+				<td><%= user6VO.getGender() %></td>
 				<td><%= user6VO.getAge() %></td>
-				<td><%= user6VO.getEmail() %></td>
-			</tr>
+				<td><%= user6VO.getAddr() %></td>
+			
 				<td>
-					<a href="./modify.jsp?user_id=<%= user6VO.getId() %>">수정</a>
-					<a href="./delete.jsp?user_id=<%= user6VO.getId() %>">삭제</a>
+					<a href="./modify.jsp?user_id=<%= user6VO.getName() %>">수정</a>
+					<a href="./delete.jsp?user_id=<%= user6VO.getName() %>">삭제</a>
 				</td>
 			
-			
+			</tr>
 			<% } %>
 		
 		
-		</table>
-	
-	
+		</table>	
 	</body>
 </html>

@@ -7,6 +7,7 @@
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%	
+	// user4
 	String host = "jdbc:oracle:thin:@localhost:1521:xe"; 
 	String user = "rainbow0oo0";
 	String pass = "1234";	
@@ -76,7 +77,7 @@
 				
 				</td>				
 			</tr>		
-		<% } %>
+			<% } %>
 		</table>	
 	</body>
 </html>

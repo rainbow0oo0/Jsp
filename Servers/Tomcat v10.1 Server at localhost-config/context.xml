@@ -56,7 +56,7 @@
     	maxWaitMillis="3000"        
     />   
     
-    <Resource
+ <Resource
     	name="jdbc/college"
     	auth="Container"
     	type="javax.sql.DataSource"
@@ -67,8 +67,20 @@
     	maxTotal="13"
     	maxIdle="13"
     	maxWaitMillis="3000"        
-    />   
+   />
     
+  <Resource
+    	name="jdbc/studydb"
+    	auth="Container"
+    	type="javax.sql.DataSource"
+    	driverClassName="com.mysql.cj.jdbc.Driver"
+    	url="jdbc:mysql://127.0.0.1:3306/studydb"
+    	username="rainbow0oo0"
+    	password="1234"
+    	maxTotal="13"
+    	maxIdle="13"
+    	maxWaitMillis="3000"        
+   />    
     
     
 </Context>

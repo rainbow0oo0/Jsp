@@ -5,6 +5,7 @@
 <%@page import="vo.User4VO"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
+	// user4
 	String name = request.getParameter("name");
 
 	String host = "jdbc:oracle:thin:@localhost:1521:xe"; 
