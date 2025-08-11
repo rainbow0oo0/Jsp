@@ -16,8 +16,8 @@
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection conn = DriverManager.getConnection(host, user, pass);
 		
-		PreparedStatement psmt = conn.prepareStatement("DELETE FROM USER7 WHERE NAME = id");
-		psmt.setString(1, id);
+		PreparedStatement psmt = conn.prepareStatement("DELETE FROM USER7 WHERE ID = ?");
+		// psmt.setString(1, id);
 		
 		psmt.execute();
 		

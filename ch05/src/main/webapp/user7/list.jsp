@@ -71,7 +71,7 @@
 				<td><%= user7VO.getEmail() %></td>
 				<td>
 					<a href="./modify.jsp?user_id=<%= user7VO.getId() %>">수정</a>
-					<ahref="./delete.jsp?user_id=<%= user7VO.getId() %>>삭제</a>
+					<a href="./delete.jsp?user_id=<%= user7VO.getId() %>">삭제</a>
 				</td>				
 			</tr>			
 			<% } %>		
