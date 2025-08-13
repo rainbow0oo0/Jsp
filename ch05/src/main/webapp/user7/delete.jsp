@@ -17,7 +17,7 @@
 		Connection conn = DriverManager.getConnection(host, user, pass);
 		
 		PreparedStatement psmt = conn.prepareStatement("DELETE FROM USER7 WHERE NAME = id");
-		psmt.setString(1, id);
+		//psmt.setString(1, id);
 		
 		psmt.execute();
 		
