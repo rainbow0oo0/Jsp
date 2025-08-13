@@ -1,14 +1,14 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page  contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 
-	// user6
+	// user7
+	String id = request.getParameter("id");
 	String name = request.getParameter("name");
-	String gender = request.getParameter("gender");
 	String age = request.getParameter("age");
-	String addr = request.getParameter("addr");
+	String email = request.getParameter("email");
 	
 	String host = "jdbc:oracle:thin:@localhost:1521:xe"; 
 	String user = "rainbow0oo0";
@@ -20,8 +20,8 @@
 		
 		Statement stmt = conn.createStatement();
 		
-		String sql = "UPDATE USER6 SET addr='" + addr + "', gender='" + gender + "', age=" + age + " ";
-					sql += "WHERE name='"+name+"'";
+		String sql = "UPDATE USER7 SET name='" + name + "', age=" + age + ", email='" + email + "' ";
+			sql += "WHERE id=" + id;
 					
 		stmt.executeUpdate(sql);
 		
