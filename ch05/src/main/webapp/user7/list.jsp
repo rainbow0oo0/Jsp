@@ -30,20 +30,13 @@
 			vo.setName(rs.getString(2));
 			vo.setAge(rs.getInt(3));
 			vo.setEmail(rs.getString(4));			
-		}
-			
-			
+		}				
 	} catch(Exception e){
 		e.printStackTrace();
 	}
 		
 
 %>
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 	<head>

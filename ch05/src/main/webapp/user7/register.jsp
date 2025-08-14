@@ -33,6 +33,12 @@
 					<td>이메일</td>
 					<td><input type="text" name="email" placeholder="이메일 입력"></td>
 				</tr>
+				
+				<tr>
+					<td colspan="2" align="right">
+						<input type="submit" value="등록하기"/>
+					</td>
+				</tr>
 			
 			</table>
 		</form>
