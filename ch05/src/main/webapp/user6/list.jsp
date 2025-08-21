@@ -70,8 +70,9 @@
 				<td><%= user6VO.getAddr() %></td>
 			
 				<td>
-					<a href="./modify.jsp?user_id=<%= user6VO.getName() %>">수정</a>
-					<a href="./delete.jsp?user_id=<%= user6VO.getName() %>">삭제</a>
+					<a href="./modify.jsp?name=<%= user6VO.getName() %>">수정</a>
+					<a href="./delete.jsp?name=<%= user6VO.getName() %>">삭제</a>
+
 				</td>
 			
 			</tr>

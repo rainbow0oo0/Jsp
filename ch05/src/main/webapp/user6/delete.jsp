@@ -3,6 +3,8 @@
 <%@page import="java.sql.Connection"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
+
+	// user6
 	String name = request.getParameter("name");
 
 	String host = "jdbc:oracle:thin:@localhost:1521:xe"; 

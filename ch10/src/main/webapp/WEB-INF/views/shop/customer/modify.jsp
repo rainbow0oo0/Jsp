@@ -1,35 +1,44 @@
+<%@page import="dto.shop.CustomerDTO"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+CustomerDTO customer = (CustomerDTO) request.getAttribute("customer");
+%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>user1::modify</title>
+		<title>Shop/Customer::modify</title>
 	</head>
 	<body>
-		<h3>User1 수정</h3>
+		<h3>Shop/Customer 수정</h3>
 		
-		<a href="/ch09">처음으로</a>
-		<a href="/ch09/user1/list.do">목록이동</a>
+		<a href="/ch10">처음으로</a>
+		<a href="/ch10/shop/customer/list.do">목록이동</a>
 		
-		<form action="/ch09/user1/modify.do" method="post">
+		<form action="/ch10/shop/customer/modify.do" method="post">
 			<table border="1">
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" name="user_id" readonly value="${user1DTO.user_id}" placeholder="아이디 입력"/></td>
+					<td><input type="text" name="cid" placeholder="아이디 입력"/></td>
 				</tr>
 				<tr>
 					<td>이름</td>
-					<td><input type="text" name="name" value="${user1DTO.name}" placeholder="이름 입력"/></td>
+					<td><input type="text" name="name" placeholder="이름 입력"/></td>
 				</tr>
 				<tr>
 					<td>휴대폰</td>
-					<td><input type="text" name="hp" value="${user1DTO.hp}" placeholder="휴대폰 입력(- 포함)"/></td>
+					<td><input type="text" name="hp" placeholder="휴대폰 입력(- 포함)"/></td>
 				</tr>
 				<tr>
-					<td>나이</td>
-					<td><input type="number" name="age" value="${user1DTO.age}" placeholder="숫자 입력"/></td>
+					<td>주소</td>
+					<td><input type="text" name="address" placeholder="주소 입력"/></td>
 				</tr>
-				<tr>					
+				<tr>
+					<td>등록일</td>
+					<td><input type="date" name="rdate" placeholder="데이터 입력"/></td>
+				</tr>	
+					
+				<tr>			
 					<td colspan="2" align="right">
 						<input type="submit" value="수정하기"/>
 					</td>

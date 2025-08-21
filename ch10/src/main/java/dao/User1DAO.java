@@ -20,8 +20,7 @@ public class User1DAO extends DBHelper {
 	// 기본 CRUD 메서드
 	public void insertUser1(User1DTO dto) {
 		
-		try {
-			
+		try {			
 			conn = getConnection(DBCP);
 			
 			String sql = "INSERT INTO user1 values (?,?,?,?)";
@@ -37,9 +36,11 @@ public class User1DAO extends DBHelper {
 		}		
 		
 	}
+	
 	public User1DTO selectUser1(String uid) {
 		return null;
 	}
+	
 	public List<User1DTO> selectAllUser1() {
 		
 		List<User1DTO> dtoList = new ArrayList<User1DTO>();
@@ -64,10 +65,34 @@ public class User1DAO extends DBHelper {
 		}
 		return dtoList;
 	}
+	
 	public void updateUser1(User1DTO dto) {
-		
+		try {
+	        conn = getConnection(DBCP);
+	        String sql = "UPDATE user1 SET name=?, hp=?, age=? WHERE uid=?";
+	        psmt = conn.prepareStatement(sql);
+	        psmt.setString(1, dto.getName());
+	        psmt.setString(2, dto.getHp());
+	        psmt.setInt(3, dto.getAge());
+	        psmt.setString(4, dto.getUid());
+	        
+	        psmt.executeUpdate();
+	        closeAll();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
 	}
+	
 	public void deleteUser1(String uid) {
-		
+		try {
+	        conn = getConnection(DBCP);
+	        String sql = "DELETE FROM user1 WHERE uid=?";
+	        psmt = conn.prepareStatement(sql);
+	        psmt.setString(1, uid);
+	        psmt.executeUpdate();
+	        closeAll();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
 	}
 }

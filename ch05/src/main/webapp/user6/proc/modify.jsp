@@ -26,8 +26,7 @@
 		stmt.executeUpdate(sql);
 		
 		stmt.close();
-		conn.close();
-		
+		conn.close();		
 		
 	}catch(Exception e){
 		e.printStackTrace();

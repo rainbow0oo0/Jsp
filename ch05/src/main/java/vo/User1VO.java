@@ -34,9 +34,7 @@ public class User1VO {
 	@Override
 	public String toString() {
 		return "User1VO [user_id=" + user_id + ", name=" + name + ", hp=" + hp + ", age=" + age + "]";
-	}
-	
-	
+	}	
 	
 	
 	

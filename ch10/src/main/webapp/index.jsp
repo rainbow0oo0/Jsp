@@ -36,11 +36,11 @@
 		<a href="/ch10/shop/product/list.do">Product CRUD</a>
 		
 		<h4>College</h4>
-		<a href="/ch10/college/student/list.do">Student CRUD</a>
+		<a href="/ch10/college/student/list.do">Student CRUD</a> 
 		<a href="/ch10/college/course/list.do">Course CRUD</a>
 		
 		<h4>Bank</h4>
-		<a href="/ch10/bank/account/list.do">Account CRUD</a>
+		<a href="/ch10/bank/account/list.do">Account CRUD</a> 
 		<a href="/ch10/bank/customer/list.do">Customer CRUD</a>
 		
 		<h4>Library</h4>

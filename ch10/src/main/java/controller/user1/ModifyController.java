@@ -42,7 +42,7 @@ public class ModifyController extends HttpServlet {
 		dto.setAge(age);
 		
 		// 서비스 호출
-		service.register(dto);
+		service.modify(dto);
 		
 		// 목록 이동
 		resp.sendRedirect("/ch10/user1/list.do");
@@ -50,4 +50,3 @@ public class ModifyController extends HttpServlet {
 	}
 	
 }
-

@@ -6,6 +6,7 @@ public class User7VO {
 	private String name;
 	private int age;
 	private String email;
+	
 	public int getId() {
 		return id;
 	}

@@ -18,7 +18,7 @@
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection conn = DriverManager.getConnection(host, user, pass);
 		
-		String sql = "SELECT * FROM USER7 WHERE NAME = ?";
+		String sql = "SELECT * FROM USER7 WHERE ID = ?";
 		PreparedStatement psmt = conn.prepareStatement(sql);
 		psmt.setString(1, id);
 		
@@ -66,7 +66,7 @@
 			
 			<tr>
 				<td>이름</td>
-				<td><input type="text" name="name" value="<%= user7.getName() %>" placeholder="성별 입력"></td>
+				<td><input type="text" name="name" value="<%= user7.getName() %>" placeholder="이름 입력"></td>
 			</tr>
 			
 			<tr>
@@ -83,8 +83,7 @@
 				<td colspan="2" align="right">
 					<input type="submit" value="수정하기"/>
 				</td>
-			</tr>	
-		
+			</tr>			
 		
 		</table>		
 	</form>			

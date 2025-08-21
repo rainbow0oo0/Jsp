@@ -7,6 +7,7 @@ public class CustomerDTO {
 	private String hp;
 	private String address;
 	private String rdate;
+	
 	public String getCid() {
 		return cid;
 	}

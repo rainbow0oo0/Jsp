@@ -8,8 +8,8 @@
 	<body>
 		<h3>주문목록</h3>
 		
-		<a href="/shopApp">처음으로</a>
-		<a href="/shopApp/order/register.do">등록하기</a>
+		<a href="/Erdshop">처음으로</a>
+		<a href="/Erdshop/order/register.do">등록하기</a>
 		
 		<table border="1">
 			<tr>

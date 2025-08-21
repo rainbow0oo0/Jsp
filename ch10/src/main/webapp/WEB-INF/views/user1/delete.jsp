@@ -16,7 +16,7 @@
 		Class.forName("mysql://127.0.0.1:3306/studydb");
 		Connection conn = DriverManager.getConnection(host, user, pass);
 		
-		PreparedStatement psmt = conn.prepareStatement("DELETE FROM USER6 WHERE NAME = ?");
+		PreparedStatement psmt = conn.prepareStatement("DELETE FROM USER1 WHERE NAME = ?");
 		psmt.setString(1, name);
 		
 		psmt.execute();

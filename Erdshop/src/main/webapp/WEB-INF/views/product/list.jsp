@@ -8,8 +8,8 @@
 	<body>
 		<h3>상품목록</h3>
 		
-		<a href="/shopApp">처음으로</a>
-		<a href="/shopApp/product/register.do">등록하기</a>
+		<a href="/Erdshop">처음으로</a>
+		<a href="/Erdshop/product/register.do">등록하기</a>
 		
 		<c:if test="${!sessUser}">
 			<form action="/shopApp/customer/login.do" method="post">

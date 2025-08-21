@@ -20,7 +20,7 @@
 		
 		Statement stmt = conn.createStatement();	
 		
-		String sql = "SELECT * FROM USER7";
+		String sql = "SELECT * FROM USER7 ORDER BY ID ASC";
 		ResultSet rs = stmt.executeQuery(sql);
 		
 		while(rs.next()){
@@ -30,11 +30,18 @@
 			vo.setName(rs.getString(2));
 			vo.setAge(rs.getInt(3));
 			vo.setEmail(rs.getString(4));			
+			
+			users.add(vo);
 		}				
+		
+		rs.close();
+		stmt.close();
+		conn.close();		
+		
+		
 	} catch(Exception e){
 		e.printStackTrace();
-	}
-		
+	}		
 
 %>
 <!DOCTYPE html>
@@ -63,8 +70,8 @@
 				<td><%= user7VO.getAge() %></td>
 				<td><%= user7VO.getEmail() %></td>
 				<td>
-					<a href="./modify.jsp?user_id=<%= user7VO.getId() %>">수정</a>
-					<a href="./delete.jsp?user_id=<%= user7VO.getId() %>">삭제</a>
+					<a href="./modify.jsp?id=<%= user7VO.getId() %>">수정</a>
+					<a href="./delete.jsp?id=<%= user7VO.getId() %>">삭제</a>
 				</td>				
 			</tr>			
 			<% } %>		
