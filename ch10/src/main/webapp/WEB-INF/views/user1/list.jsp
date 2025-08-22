@@ -27,8 +27,8 @@
 				<td>${dto.hp}</td>
 				<td>${dto.age}</td>
 				<td>					
-					<a href="212">수정</a>					
-					<a href="111">삭제</a>
+					<a href="/ch10/user1/modify.do?uid=${dto.uid}">수정</a>					
+					<a href="/ch10/user1/delete.do?uid=${dto.uid}">삭제</a>
 				</td>
 			</tr>
 			</c:forEach>

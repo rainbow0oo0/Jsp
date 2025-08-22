@@ -17,7 +17,8 @@
 			</p>
 			
 			<h4>로그인</h4>
-			<form action="/ErdCollege/student/login.do" method="post">
+			<form action="${pageContext.request.contextPath}/student/login.do" method="post">
+
 				<table border="1">
 					<tr>
 						<td>학번</td>

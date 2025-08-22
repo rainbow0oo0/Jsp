@@ -16,7 +16,7 @@
 			</p>
 			
 			<h4>로그인</h4>
-			<form action="ErdBank/customer/Login.do" method="post">
+			<form action="ErdBank/customer/login.do" method="post">
 				<table border="1">
 					<tr>
 						<td>주민번호</td>
@@ -24,7 +24,7 @@
 					</tr>
 					<tr>
 						<td>이름</td>
-						<td><input type="text" name="c_Name" placeholder="이름 입력 하세요"/></td>
+						<td><input type="text" name="c_name" placeholder="이름 입력 하세요"/></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="right">

@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/customer/logout.do")
-public class Logoutcontroller extends HttpServlet {
+public class LogoutController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	

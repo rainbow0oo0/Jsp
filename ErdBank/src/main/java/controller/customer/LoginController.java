@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpSession;
 import service.CustomerService;
 
 @WebServlet("/customer/login.do")
-public class Logincontroller extends HttpServlet {
+public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private CustomerService service = CustomerService.INSTANCE;

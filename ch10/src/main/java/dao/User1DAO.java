@@ -38,7 +38,26 @@ public class User1DAO extends DBHelper {
 	}
 	
 	public User1DTO selectUser1(String uid) {
-		return null;
+		User1DTO dto = null;
+		try {
+			conn = getConnection(DBCP);
+			String sql = "SELECT * FROM user1 WHERE uid = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, uid);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()){
+				dto = new User1DTO();
+				dto.setUid(rs.getString(1));
+				dto.setName(rs.getString(2));
+				dto.setHp(rs.getString(3));
+				dto.setAge(rs.getInt(4));
+			}
+			closeAll();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return dto;
 	}
 	
 	public List<User1DTO> selectAllUser1() {

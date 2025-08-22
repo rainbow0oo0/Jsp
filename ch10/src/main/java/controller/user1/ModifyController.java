@@ -20,6 +20,16 @@ public class ModifyController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// uid 파라미터 받기, uid 가져오기
+		String uid = req.getParameter("uid");
+		
+		// 서비스 호출, DB 조회
+		User1DTO dto = service.findById(uid);
+		
+		// request 공유, JSP에서 쓸 수 있도록 저장
+		req.setAttribute("user1DTO", dto);
+		
+		// 포워딩	
 	
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/user1/modify.jsp");
 		dispatcher.forward(req, resp);	
