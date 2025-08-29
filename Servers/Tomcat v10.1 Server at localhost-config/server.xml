@@ -144,7 +144,7 @@
 
     
 	<Context docBase="ErdBank" path="/ErdBank" reloadable="true" source="org.eclipse.jst.jee.server:ErdBank"/>
-	</Host>
+	<Context docBase="ErdCollge" path="/ErdCollge" reloadable="true" source="org.eclipse.jst.jee.server:ErdCollge"/></Host>
 	
     </Engine>
   </Service>
