@@ -143,8 +143,8 @@
 		<Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
     
-	<Context docBase="ErdBank" path="/ErdBank" reloadable="true" source="org.eclipse.jst.jee.server:ErdBank"/>
-	<Context docBase="ErdCollge" path="/ErdCollge" reloadable="true" source="org.eclipse.jst.jee.server:ErdCollge"/></Host>
+	
+	</Host>
 	
     </Engine>
   </Service>
