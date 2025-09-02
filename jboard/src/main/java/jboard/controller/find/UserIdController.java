@@ -17,7 +17,7 @@ public class UserIdController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/user/info.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/find/userId.jsp");
 		dispatcher.forward(req, resp);
 	}
 	

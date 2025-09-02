@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/article/serchList.do")
+@WebServlet("/article/searchList.do")
 public class SearchListController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -18,7 +18,7 @@ public class SearchListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/article/serchList.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/article/searchList.jsp");
 		dispatcher.forward(req, resp);
 	}
 	
@@ -26,3 +26,4 @@ public class SearchListController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	}
 }
+
