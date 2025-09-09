@@ -1,0 +1,455 @@
+/* -----------------------------------
+2025.9.2 검색, 페이징 버튼 적용 -전용준
+2025.9.4 topbar/ breadcrumb 패딩 수정 -전용준
+
+----------------------------------- */
+        
+        
+        
+        /* ===========================
+          전체 공통
+        ============================ */
+        body {
+            margin: 0;
+            font-family: "Noto Sans KR ", sans-serif;
+            color: #333;
+            background: #ffffff;
+            min-width: 1200px;
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; margin: 0; padding: 0; }
+
+        /* ===========================
+          상단바
+        ============================ */
+        .topbar {
+            background: #3F97F6;
+            color: #fff;
+            display: flex;
+            justify-content: right;
+            gap: 30px;
+            padding: 0px 295px;
+            font-size: 14px;
+            height: 27px;
+            align-items: center;
+            box-sizing: border-box;
+            
+        }
+
+        /* ===========================
+          헤더
+        ============================ */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0px 60px;
+            border-bottom: 1px solid #ddd;
+            height: 77px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            margin-left: 200px;
+
+        }
+        .logo img { height: 50px; }
+        nav {
+            background: white;
+            box-shadow: none;
+        }
+        nav ul {
+            display: flex;
+            gap: 40px;
+            font-size: 16px;
+            font-weight: 500;
+            margin-right: 235px;
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav > ul > li {
+            padding: 15px 0;
+            cursor: pointer;
+        }
+        nav ul li:hover {
+            background: none;
+            color: #3F97F6;
+        }
+        /* 드롭다운 */
+        nav ul li ul {
+            position: absolute;
+            top: 100%;
+            left: -20px;
+            background: #2a7be4;
+            display: none;
+            min-width: 180px;
+            padding: 0;
+            z-index: 1000;
+            flex-direction: column;
+            gap: 0;
+        }
+        nav ul li ul li {
+            padding: 10px 20px;
+            color: white;
+            white-space: nowrap;
+        }
+        nav ul li ul li:hover {
+            background: #1f5cbf;
+        }
+        nav ul li:hover ul {
+            display: flex;
+        }
+
+        /* ===========================
+        페이지 경로 (Breadcrumb)
+        ============================ */
+        .breadcrumb-bar {
+            background-color: #ECF2F6;
+            height: 42px;            
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 0px;
+            min-width: 1200px;
+            box-sizing: border-box;
+            margin-right: 0px;
+        }
+
+        .breadcrumb-content {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            padding-right: 290px;
+            color: #555;
+            gap: 8px;
+        }
+
+        .breadcrumb-content a {
+            color: #555;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb-content a:hover {
+            color: #3F97F6;
+        }
+
+        .home-icon svg {
+            vertical-align: middle;
+        }
+
+        .path-divider {
+            color: #aaa;
+            margin: 0 -4px;
+        }
+
+        .breadcrumb-content a:last-of-type {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* ===========================
+          본문 (사이드바 + 콘텐츠)
+        ============================ */
+        .container {
+            display: flex;
+            padding: 30px 60px;
+            margin-left: 200px;
+            margin-right: 200px;
+        }
+        .sidebar {
+            width: 210px;
+            height: 500px;
+        }
+        .sidebar h2 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .sidebar ul li {
+            padding: 15px 10px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+        .sidebar ul li.active {
+            background: white;
+            color: #333333;
+            border-top: 3px solid #000;
+        }
+        .highlight {
+            background-color: #3F97F6; /* 배경색을 파란색으로 */
+            color: white; /* 글꼴 색상을 흰색으로 */
+        }
+        .content {
+            flex: 1;
+            padding: 0 30px;
+        }
+        .content h2 {
+            margin-top: 0;
+            padding-top: 5px;
+            /*border-top: 3px solid #000; / 윗부분 굵은 검정색 선 */
+        }
+         /* 검색 */
+        main .search-container {
+			display: flex;
+			justify-content: flex-end;
+			padding-top: 15px;
+		}
+        
+		main .search-div {
+			display: flex;
+			gap: 5px;
+			flex-wrap: wrap;
+			align-items: center;
+			max-width: 1200px;
+			width: auto;
+			box-sizing: border-box;
+			flex-basis: auto;
+			max-width: 700px;
+		}
+        main .search-div form {
+			display: flex;
+			gap: 5px;
+			flex-wrap: wrap;
+			align-items: center;
+		}
+        .search-div select,
+		.search-div input[type="text"] {
+			flex: 1;
+			min-width: 150px;
+			padding: 8px 12px;
+			font-size: 14px;
+			border: 1px solid #ccc;
+			box-sizing: border-box;
+		}
+
+		main .search-div input[type="text"] {
+			margin-right: 0;
+			
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+
+		main .search-div button {
+			padding: 9px 20px;
+			background-color: #3f97f6;
+			border: none;
+			border-radius: 2px;
+			color: white;
+			font-weight: 600;
+			cursor: pointer;
+			white-space: nowrap;
+		}
+        main .notice-list-wrapper {
+
+			
+			margin: 10px auto 15px auto;
+			border-top: 2px solid black;
+			width: 100%;
+			box-sizing: border-box;
+
+		}
+
+		main .notice-list table {
+			width: 100%;
+			border-collapse: collapse;
+			text-align: center;
+		}
+
+		main .notice-list thead th {
+			background-color: #f0f0f0;
+			padding: 12px 8px;
+			border-bottom: 1px solid #ccc;
+			font-weight: 600;
+		}
+        main .notice-list tbody td {
+			padding: 12px 8px;
+			border-bottom: 1px solid #eee;
+			vertical-align: middle;
+			word-break: break-word;
+			
+			/* 제목 등 긴 텍스트 줄바꿈 */
+		}
+        main .left-list{
+            text-align: left;
+        }
+        .status.answered {
+            color: #008000;
+            font-weight: bold;
+        }
+        .status.answered-no{
+            color: #ff0000;
+            font-weight: bold;
+        }
+
+		/* 페이징 컨테이너 최상위  */
+		main .page-wrapper {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding-top: 15px;
+			margin-top: 30px;
+			gap: 5px;
+		}
+
+		/* 페이징 요소들을 감싸는 실제 컨테이너 (버튼, 이미지 정렬) */
+		main .page-wrapper .page {
+			display: flex;
+			gap: 5px;
+			align-items: center;
+		}
+
+		main .page-wrapper .page-btn.active {
+			background-color: #4a90e2;
+			color: white;
+			border-color: #4a90e2;
+			font-weight: bold;
+			cursor: default;
+		}
+
+		main .page-wrapper .page-btn:hover:not(.active) {
+			background-color: #f2f2f2;
+		}
+
+		/* 페이징 버튼 (1, 2, 3...) */
+		main .page-wrapper .page-btn {
+			width: 32px;
+			height: 32px;
+			border: 1px solid #dedede;
+			background-color: white;
+			color: #333;
+			font-size: 14px;
+			font-weight: normal;
+			cursor: pointer;
+			border-radius: 3px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			box-sizing: border-box;
+			
+			
+		}
+
+		/* 페이징 화살표 이미지 (<<, <, >, >>) */
+		main .page-wrapper .pagination-arrow {
+			width: 32px;
+			height: 32px;
+			border: 1px solid #dedede;
+			box-sizing: border-box;
+			cursor: pointer;
+			border-radius: 3px;
+			object-fit: contain;
+			padding: 10px;
+		}
+
+		/* 비활성화된 화살표 이미지 (예: 첫 페이지에서 '이전' 버튼) */
+		main .page-wrapper .pagination-arrow.disabled {
+			opacity: 0.5;
+			/* 투명도 낮춰 비활성 표시 */
+			cursor: not-allowed;
+			/* 클릭 불가 마우스 모양 */
+			background-color: #f8f8f8;
+			/* 배경색 살짝 어둡게 */
+		}
+
+        /* ===========================
+          푸터
+        ============================ */
+        .footer-bar {
+            background: #1F2838;
+            height: 50px;
+        }
+        footer {
+            background: #19202d;
+            color: #ccc;
+            padding: 20px 40px 5px;
+            font-size: 14px;
+        }
+        .footer-top {
+            border-bottom: 1px solid #1F2838;
+            padding-bottom: 15px;
+            font-size: 14px;
+        }
+        .footer-top ul {
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+        }
+        .footer-mid {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 5px 0;
+        }
+        .footer-info {
+            display: flex;
+            align-items: flex-end;
+            gap: 20px;
+            margin-left: 360px;
+        }
+        .footer-info .logo img {
+            width: 160px;
+            height: 41px;
+        }
+        .address-info span {
+            display: block;
+            color: #888;
+            line-height: 1.4;
+        }
+        .address-info span:first-child {
+            font-weight: bold;
+            color: #a8a9ac;
+        }
+        .copyright {
+            margin-left: 580px;
+            color: #a8a9ac;
+            font-size: 14px;
+        }
+        .family-site-wrap {
+            position: relative;
+            font-size: 14px;
+        }
+        .family-site-btn {
+            width: 150px;
+            height: 38px;
+            background-color: #333;
+            color: #ccc;
+            border: 1px solid #555;
+            padding: 0 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        .family-site-btn .arrow {
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #ccc;
+        }
+        .family-site-list {
+            position: absolute;
+            bottom: 40px;
+            right: 0;
+            width: 150px;
+            background-color: #333;
+            border: 1px solid #555;
+            display: none;
+        }
+        .family-site-list li a {
+            display: block;
+            padding: 10px 15px;
+            color: #ccc;
+        }
+        .family-site-list li a:hover {
+            background-color: #555;
+            color: #fff;
+        }
+        .family-site-wrap:hover .family-site-list {
+            display: block;
+        }
+ 

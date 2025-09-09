@@ -144,7 +144,7 @@
 
     
 	
-	<Context docBase="jboard" path="/jboard" reloadable="true" source="org.eclipse.jst.jee.server:jboard"/></Host>
+	<Context docBase="Green" path="/Green" reloadable="true" source="org.eclipse.jst.jee.server:Green"/></Host>
 	
     </Engine>
   </Service>

@@ -28,10 +28,10 @@ public class ViewController extends HttpServlet {
 		
 		String ano = req.getParameter("ano");
 		
-		ArticleDTO articleDTO = articleService.findAricleWithFile(ano);
-		logger.debug(articleDTO.toString());
+		// ArticleDTO articleDTO = articleService.findAricleWithFile(ano);
+		// logger.debug(articleDTO.toString());
 		
-		req.setAttribute("articleDTO", articleDTO);
+		// req.setAttribute("articleDTO", articleDTO);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/article/view.jsp");
 		dispatcher.forward(req, resp);
