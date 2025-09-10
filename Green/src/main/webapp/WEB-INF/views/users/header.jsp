@@ -9,4 +9,4 @@
     <title>Document</title>
     <link rel="stylesheet" href="/Green/resource/css/회원_공통.css">
 </head>
-<%@ include file="./header.jsp" %>
+

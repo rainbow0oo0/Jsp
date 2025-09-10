@@ -1,4 +1,4 @@
-package controller.student.course;
+package controller.students.enroll;
 
 import java.io.IOException;
 import java.util.List;
@@ -12,33 +12,28 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/students/course/register.do")
-public class RegisterController extends HttpServlet {
-
+@WebServlet("/students/course/list.do")
+public class ListController extends HttpServlet{
+	
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		
 		CourseDAO dao = CourseDAO.getInstance();
 		List<CourseDTO> courses = dao.selectCourses();
 		
 		req.setAttribute("courses", courses);	
 				
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/students/course_reg.jsp");
-		dispatcher.forward(req, resp);
-
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/students/enroll_hist.jsp");
+		dispatcher.forward(req, resp);	
+		
 	}
-
+		
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		// req.setCharacterEncoding("utf-8"); 수강신청 insert 로직 추가
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {			
 		
-		String csId = req.getParameter("cs_id");
-		System.out.println("수강 신청한 과목 ID: " + csId);
-		
-		resp.sendRedirect(req.getContextPath() + "/student/course/register.do");
 	}
 
 }
+

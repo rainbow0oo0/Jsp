@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>그린대학교 컴퓨터과학과</title>
 
-    
+    <link rel="stylesheet" href="/Green/resource/css/main_style.css">
     
     </head>
 
@@ -27,7 +27,7 @@
             <ul>
                 <li>대학소개
                     <ul>
-                    <li><a href="/Green/1대학소개/대학소개1-총장인사말.do">총장 인사말</a></li>
+                    <li><a href="/Green/introduce/greetings.do">총장 인사말</a></li>
                     <li><a href="/Green/1대학소개/대학소개2-교육이념.do">교육이념</a></li>
                     <li><a href="../1대학소개/대학소개3-연혁.html">연혁</a></li>
                     <li><a href="../1대학소개/대학소개4-조직도.html">조직도</a></li>
@@ -36,7 +36,7 @@
                 </li>
                 <li>입학안내
                     <ul>
-                        <li><a href="../2입학안내/입학안내1-공지사항.html">공지사항</a></li>
+                        <li><a href="/Green/admiss_info/notice.do">공지사항</a></li>
                         <li><a href="../2입학안내/입학안내2-수시모집.html">수시모집</a></li>
                         <li><a href="../2입학안내/입학안내3-정시모집.html">정시모집</a></li>
                         <li><a href="../2입학안내/입학안내4-편입학.html">편입학</a></li>
@@ -57,7 +57,7 @@
                         <li><a href="../4학사안내/학사안내1-공지사항.html">공지사항</a></li>
                         <li><a href="../4학사안내/학사안내2-학사일정.html">학사일정</a></li>
                         <li><a href="/Green/students/course/register.do">수강신청</a></li>
-                        <li><a href="../4학사안내/학사안내4-성적.html">성적</a></li>
+                        <li><a href="/4학사안내/학사안내4-성적.html">성적</a></li>
                         <li><a href="../4학사안내/학사안내5-수료및졸업.html">수료 및 졸업</a></li>
                         <li><a href="../4학사안내/학사안내6-자주하는질문.html">자주하는질문</a></li>
                     </ul>

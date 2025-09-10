@@ -107,30 +107,31 @@
             </div>
             <br>
             
-            <form action="" class="login-form">
-                
-                <div class="check-box">
-                    <input type="radio" name="login_type" id="student" value="학부생">
-                    <label for="student">학부생</label>
-                </div>
-                <div class="check-box">
-                    <input type="radio" name="login_type" id="staff" value="교직원">
-                    <label for="staff">교직원</label>
-                </div>
-                <div class="check-box">
-                    <input type="radio" name="login_type" id="general" value="일반인">
-                    <label for="general">일반인</label>
-                </div>
-                
-
-                <a href="#"><div style="color: black; float: right;">아이디/비밀번호 찾기</div></a>
-
-
-                <input type="text" placeholder="아이디">
-                <input type="text" placeholder="비밀번호">
-                <input type="submit" value="로그인" style="background-color: #3f97f6; color: white; cursor: pointer;">
-
-            </form>
+            <form action="/login" method="post" class="login-form">
+    
+			    <div class="check-box">
+			        <input type="radio" name="login_type" id="student" value="student" checked>
+			        <label for="student">학부생</label>
+			    </div>
+			    <div class="check-box">
+			        <input type="radio" name="login_type" id="staff" value="staff">
+			        <label for="staff">교직원</label>
+			    </div>
+			    <div class="check-box">
+			        <input type="radio" name="login_type" id="general" value="general">
+			        <label for="general">일반인</label>
+			    </div>
+			    
+			
+			    <a href="#"><div style="color: black; float: right;">아이디/비밀번호 찾기</div></a>
+			
+			
+			    <input type="text" name="id" placeholder="아이디" required>
+			    <input type="password" name="pw" placeholder="비밀번호" required>
+			    
+			    <input type="submit" value="로그인" style="background-color: #3f97f6; color: white; cursor: pointer;">
+			
+			</form>
 
             <a href="../8회원/회원3-가입.html"><div style="color: black; float: right;">회원가입</div></a>  <!--  -->
             <br>

@@ -24,6 +24,7 @@ public class CourseDTO {
 	private String pro_name;
 	private String dep_name;
 	private int cs_std_now;	// 현재 수강인원
+	private int en_no;
 	
 	public int getCs_std_now() {
 		return cs_std_now;
@@ -146,6 +147,13 @@ public class CourseDTO {
 	}
 	public void setDep_name(String dep_name) {
 		this.dep_name = dep_name;
+	}	
+	
+	public int getEn_no() {
+		return en_no;
+	}
+	public void setEn_no(int en_no) {
+		this.en_no = en_no;
 	}
 	
 	@Override

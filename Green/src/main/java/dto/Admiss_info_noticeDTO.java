@@ -1,14 +1,15 @@
-package dto.entrance;
+package dto;
 
 import java.sql.Date;
 
-public class E_noticeDTO {
+public class Admiss_info_noticeDTO {
 	private int id;
 	private String title;
 	private String content;
 	private String writer;
 	private Date created_at;
 	private int views;
+	
 	public int getId() {
 		return id;
 	}
