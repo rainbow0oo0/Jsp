@@ -3,11 +3,13 @@ package controller.students.enroll;
 import java.io.IOException;
 
 import dao.CourseDAO;
+import dto.StudentDTO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/students/course/delete.do")
 public class DeleteController extends HttpServlet{
@@ -22,12 +24,26 @@ public class DeleteController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-		String enNo = req.getParameter("en_no");
+		String csId = req.getParameter("cs_id");
 		
-		CourseDAO dao= CourseDAO.getInstance();
-		dao.deleteErollment(enNo);
+		HttpSession session = req.getSession();
+		StudentDTO student = (StudentDTO) session.getAttribute("loggedInUser");
 		
-		resp.sendRedirect(req.getContextPath() + "students/course/list.do");
+		if (student == null) {			
+			resp.sendRedirect("/Green/login.do");
+			return;  
+		}
+		
+		CourseDAO dao = CourseDAO.getInstance();
+		int result = dao.insertEnrollment(Long.parseLong(csId), student.getStd_no());
+		
+		if (result > 0) {
+			System.out.println("수강취소 성공: 학생=" + student.getStd_no() + ", 과목=" + csId);			
+		} else {
+			System.out.println("수강취소 실패: 학생=" + student.getStd_no() + ", 과목=" + csId);
+		}
+		
+		resp.sendRedirect("Green/students/course/list.do");
 		
 	}
 }

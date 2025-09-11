@@ -73,7 +73,8 @@ public class Sql {
     // 모든 글 가져오기
     public static final String SELECT_ADMISS_NOTICE_ALL = "SELECT * FROM TB_ADMISS_NOTICE "
                                                             + "ORDER BY ID DESC "
-                                                            + "LIMIT 3 OFFSET ?;";
+                                                            + "LIMIT 3 OFFSET ?";
+	public static final String SELECT_ARTICLE_WITH_FILE = "SELECT * FROM article WHERE ano=?";
     // 글 개수 구하기
     public static final String SELECT_ADMISS_NOTICE_COUNT_TOTAL = "SELECT COUNT(*) FROM TB_ADMISS_NOTICE";
     public static final String SELECT_ADMISS_NOTICE_COUNT_BY_DIST = "SELECT COUNT(*) FROM Article where wdist=? ";
@@ -87,7 +88,7 @@ public class Sql {
     public static final String SEARCH_ORDER_ID = "ORDER BY ano DESC ";
     public static final String SEARCH_OFFSET_ROW = "LIMIT ? OFFSET ?";
 
-	/* 수강신청 */
+	// 수강신청
 	public static final String SELECT_COURSES =
 		"SELECT " 
 		+ " d.dep_name, "
@@ -102,5 +103,25 @@ public class Sql {
 		+ " join department d on c.dep_no = d.dep_no "
 		+ " join professor p on c.pro_no = p.pro_no";	
 	
+	// 수강신청내역
+	public static final String SELECT_ENROLLMENTS =
+		    "SELECT "
+		  + " c.cs_id, "
+		  + " c.cs_name, "
+		  + " c.cs_grade, "
+		  + " p.pro_name, "
+		  + " c.cs_credit, "
+		  + " c.cs_dist, "
+		  + " c.cs_weekday, "
+		  + " c.cs_room "
+		  + "FROM enrollment e "
+		  + "JOIN course c ON e.cs_id = c.cs_id "
+		  + "JOIN professor p ON c.pro_no = p.pro_no";
+
+
+	// 교수
+	public static final String SELECT_PROFESSOR_LIST = "select pro_no, pro_name, pro_jumin, pro_hp, pro_email, d.dep_name, pro_position, pro_status, pro_appoint_date "
+			+ "from professor p join department d on p.dep_no = d.dep_no";
 	
+	public static final String INSERT_PROFESSOR = "insert into professor (pro_jumin, pro_name, pro_eng_name, pro_gen, pro_nation, pro_hp, pro_email, pro_addr, pro_univ, pro_grad_date, pro_degree, dep_no, pro_appoint_date) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 }

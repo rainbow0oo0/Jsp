@@ -59,7 +59,7 @@ public class RegisterController extends HttpServlet{
 		
 		userService.register(dto);
 		
-		resp.sendRedirect("/Green/");
+		resp.sendRedirect("/Green/login.do");
 	}
 
 }

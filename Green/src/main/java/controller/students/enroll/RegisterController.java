@@ -5,6 +5,7 @@ import java.util.List;
 
 import dao.CourseDAO;
 import dto.CourseDTO;
+import dto.StudentDTO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -33,26 +34,26 @@ public class RegisterController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		
 		String csId = req.getParameter("cs_id");
-		
-		HttpSession session = req.getSession();
-		String stdNo = (String) session.getAttribute("sessStdNo");
-		
-		if (stdNo == null) {
-			resp.sendRedirect(req.getContextPath() + "/login.do");
-		}
-		
-		CourseDAO dao = CourseDAO.getInstance();
-		int result = dao.insertEnrollment(Integer.parseInt(csId), stdNo);
-		
-		if (result > 0) {
-            System.out.println("수강신청 완료: 학생=" + stdNo + ", 과목=" + csId);
-        } else {
-            System.out.println("수강신청 실패: 학생=" + stdNo + ", 과목=" + csId);
-        }		
-		
-		resp.sendRedirect(req.getContextPath() + "/students/course/register.do");
+
+	    HttpSession session = req.getSession();
+	    StudentDTO student = (StudentDTO) session.getAttribute("loggedInUser");
+
+	    if (student == null) {
+	        resp.sendRedirect("/Green/login.do");
+	        return;
+	    }	    
+
+	    CourseDAO dao = CourseDAO.getInstance();
+	    int result = dao.insertEnrollment(Long.parseLong(csId), student.getStd_no());
+
+	    if (result > 0) {
+	        System.out.println("수강신청 완료: 학생=" + student.getStd_no() + ", 과목=" + csId);
+	    } else {
+	        System.out.println("수강신청 실패: 학생=" + student.getStd_no() + ", 과목=" + csId);
+	    }
+
+	    resp.sendRedirect("/Green/students/course/register.do");
 	}
 
 }

@@ -11,16 +11,16 @@
 <body>
     <div class="topbar">
 
-        <a href="../main.html">HOME</a>
+        <a href="/Green/">HOME</a>
         <a href="../main.html">사이트맵</a>
 
-        <a href="/Green/users/login.jsp">로그인</a>
+        <a href="/Green/login.do">로그인</a>
         <a href="../students/enroll.jsp">학생지원</a>
     </div>
 
     <header>
         <div class="logo">
-            <span><img src="./images/header_logo.png" alt="그린대학교 로고"></span>
+            <span><img src="/Green/resource/images/header_logo.png" alt="그린대학교 로고"></span>
         </div>
         <nav>
             <ul>
@@ -86,16 +86,16 @@
     <div class="breadcrumb-bar">
         <div class="breadcrumb-content">
             <span class="home-icon">
-                <a href="#">
-                    <svg xmlns="./images/ico-home.png" height="16" viewBox="0 -960 960 960" width="16" fill="#333333">
+                <a href="/Green/">
+                    <svg xmlns="/Green/resource/images/ico-home.png" height="16" viewBox="0 -960 960 960" width="16" fill="#333333">
                         <path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/>
                     </svg>
                 </a>
             </span>
             <span class="path-divider"> > </span>
-            <a href="#">학생지원</a>
+            <a href="#">회원</a>
             <span class="path-divider"> > </span>
-            <a href="#">학사일정</a>
+            <a href="#">회원가입</a>
         </div>
     </div>
 
@@ -125,7 +125,7 @@
                                 <tr>
                                     <th>아이디<i>*</i></th>
                                     <td><input type="text" name="user_id" required placeholder="아이디 입력"><span>영문·숫자 조합 4~10자 이내</span>
-                                    <button type="button" id="btnCheckuser_id">아이디중복</button>                                 
+                                                                     
                                     <span class="user_idResult"></span>
                                     </td>
                                 </tr>
@@ -176,10 +176,10 @@
                                 </tr>
                             </table>
                             <span class="notice">
-                                <i>*</i>&nbsp&nbsp필수입력
+                                <i>*</i>&nbsp;&nbsp;필수입력
                             </span>
                             <div class="selectBox">
-                                <button type="button" id="cancel">취소</button>
+                                <a href="/Green/login.do"><button type="button" id="cancel">취소</button></a>
                                 <button type="submit" id="signUp">회원가입</button>
                             </div>
                         </form>
@@ -202,7 +202,7 @@
         <div class="footer-mid">
             <div class="footer-info">
                 <div class="logo">
-                    <img src="./images/footer_logo.png" alt="그린대학교 로고">
+                    <img src="/Green/resource/images/footer_logo.png" alt="그린대학교 로고">
                 </div>
                 <div class="address-info">
                     <span>그린대학교</span>

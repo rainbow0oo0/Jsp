@@ -20,10 +20,21 @@ public class ProfessorDTO {
 	private int pro_seq;
 	
 	private int dep_no;
+	
+	
+	// 추가 필드
+	private String dep_name;
+	
+	
+	
+	public String getDep_name() {
+		return dep_name;
+	}
 
-	
-	
-	
+	public void setDep_name(String dep_name) {
+		this.dep_name = dep_name;
+	}
+
 	public int getDep_no() {
 		return dep_no;
 	}

@@ -1,18 +1,18 @@
 package dto;
 
-public class UserDTO {
+public class UsersDTO {
 	
-	private int us_id;
+	private String us_id;
 	private String us_pass;
 	private String us_name;
 	private String us_hp;
 	private String us_email;
 	private String us_addr;
 	
-	public int getUs_id() {
+	public String getUs_id() {
 		return us_id;
 	}
-	public void setUs_id(int us_id) {
+	public void setUs_id(String us_id) {
 		this.us_id = us_id;
 	}
 	public String getUs_pass() {

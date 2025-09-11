@@ -1,4 +1,4 @@
-package dao.login;
+package dao;
 
 import dto.StudentDTO;
 import util.DBHelper;

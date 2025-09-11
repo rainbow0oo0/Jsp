@@ -1,12 +1,13 @@
-package dao.login;
+package dao;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import dto.ProfessorDTO;
 import util.DBHelper;
+import util.Sql;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 
 public class ProfessorDAO extends DBHelper {
     private static ProfessorDAO instance;
@@ -69,5 +70,68 @@ public class ProfessorDAO extends DBHelper {
         	e.printStackTrace();
         }
         return dto;
+    }
+    
+    
+    
+    public List<ProfessorDTO> selectAll(){
+    	List<ProfessorDTO> dtoList = new ArrayList<ProfessorDTO>();
+    	
+    	try {
+    		
+    		conn = getConnection();
+    		stmt = conn.createStatement();
+    		
+    		rs = stmt.executeQuery(Sql.SELECT_PROFESSOR_LIST);
+    		
+    		while (rs.next()) {
+    			ProfessorDTO dto = new ProfessorDTO();
+    			dto.setPro_no(rs.getInt(1));
+    			dto.setPro_name(rs.getString(2));
+    			dto.setPro_jumin(rs.getString(3));
+    			dto.setPro_hp(rs.getString(4));
+    			dto.setPro_email(rs.getString(5));
+    			dto.setDep_name(rs.getString(6));
+    			dto.setPro_position(rs.getString(7));
+    			dto.setPro_status(rs.getString(8));
+    			dto.setPro_appint_date(rs.getString(9));
+    			
+    			dtoList.add(dto);
+    		}
+    		
+    		closeAll();
+    		
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    	
+    	return dtoList;
+    }
+    
+    public void insert(ProfessorDTO dto) {
+    	try {
+    		conn = getConnection();
+    		psmt = conn.prepareStatement(Sql.INSERT_PROFESSOR);
+    		psmt.setString(1, dto.getPro_jumin());
+    		psmt.setString(2, dto.getPro_name());
+    		psmt.setString(3, dto.getPro_eng_name());
+    		psmt.setString(4, dto.getPro_gen());
+    		psmt.setString(5, dto.getPro_nation());
+    		psmt.setString(6, dto.getPro_hp());
+    		psmt.setString(7, dto.getPro_email());
+    		psmt.setString(8, dto.getPro_addr());
+    		psmt.setString(9, dto.getPro_univ());
+    		psmt.setString(10, dto.getPro_grad_date());
+    		psmt.setString(11, dto.getPro_degree());
+    		psmt.setInt(12, dto.getDep_no());
+    		psmt.setString(13, dto.getPro_appint_date());
+    		
+    		psmt.executeUpdate();
+    		
+    		closeAll();
+    		
+    	} catch(Exception e) {
+    		e.printStackTrace();
+    	}
     }
 }

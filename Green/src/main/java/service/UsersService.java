@@ -73,9 +73,7 @@ public enum UsersService {
 			dao.insert(dto);
 		}	
 		
-		public int getUserCount(String col, String value) {
-			return dao.selectCount(col, value);
-		}
+
 		public UsersDTO findByPass(UsersDTO dto) {
 			return dao.selectCount(dto);
 		}

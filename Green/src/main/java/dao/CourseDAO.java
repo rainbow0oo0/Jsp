@@ -20,7 +20,7 @@ public class CourseDAO extends DBHelper {
 		return instance;
 	}
 
-	/* 수강신청 */
+	/* 수강신청 select */
     public List<CourseDTO> selectCourses() {
         List<CourseDTO> list = new ArrayList<>();
         Connection conn = null;
@@ -55,6 +55,30 @@ public class CourseDAO extends DBHelper {
 
         return list;
     }
+    
+    /* 수강신청 insert */
+	public int insertEnrollment(long csId, String stdNo) {
+		int result = 0;
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		
+		try {					
+			conn = getConnection();
+			String sql = "INSERT INTO enrollment (std_no, cs_id) VALUES (?, ?)";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, stdNo);
+			psmt.setLong(2, csId);
+			
+			result = psmt.executeUpdate();
+			
+			if (psmt != null) psmt.close();
+			if (conn != null) conn.close();
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;		
+	} 
     
     /* 수강신청내역 */
     public List<CourseDTO> selectEnrollments() {
@@ -93,16 +117,17 @@ public class CourseDAO extends DBHelper {
     }
     
     /* 수강취소 */
-    public void deleEnrollment(String enNo) {
+    public int deleteEnrollment(String stdNo, int csId) {
+    	int result = 0;
     	Connection conn = null;
     	PreparedStatement psmt = null;
-    	
+    	    	    	
     	try {
     		conn = getConnection();
-    		String sql = "DELETE FROM enrollment WHERE en_no = ?";
+    		String sql = "DELETE FROM enrollment WHERE en_no = ? AND cs_id = ?";
     		psmt = conn.prepareStatement(sql);
-    		psmt.setString(1, enNo);
-    		psmt.executeUpdate();
+    		psmt.setString(1, stdNo);
+    		psmt.setInt(2, csId);
     		
     		if (psmt != null) psmt.close();
     		if (conn != null) conn.close();   		
@@ -110,15 +135,8 @@ public class CourseDAO extends DBHelper {
     	}catch (Exception e){
     		e.printStackTrace();
     	}
+    	return result;
     	
-    	
-    }
-    
-    /* ?? */
-	public int insertEnrollment(int int1, String stdNo) {
-		
-		
-		return 0;
-	}    
+    }       
     
 }

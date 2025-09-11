@@ -2,9 +2,9 @@ package controller.users.login;
 
 import java.io.IOException;
 
-import dao.login.StudentDAO;
-import dao.login.ProfessorDAO;
-import dao.login.UsersDAO;
+import dao.StudentDAO;
+import dao.ProfessorDAO;
+import dao.UsersDAO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -26,6 +26,7 @@ public class LoginController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
+    	
 
     	String loginType = request.getParameter("login_type");
     			
@@ -55,9 +56,17 @@ public class LoginController extends HttpServlet {
 
             if (loggedInUser != null) {
             	System.out.println("로그인 성공!!!");
+            	
+            	
+            	String prefixx = null;
+                if (userId != null && userId.length() >= 3) {
+                    prefixx = userId.substring(0, 3);
+                }
+            	
                 HttpSession session = request.getSession();
                 // 로그인 성공 시 DTO 객체를 세션에 저장
                 session.setAttribute("loggedInUser", loggedInUser);
+                session.setAttribute("prefixx", prefixx);
                 response.sendRedirect("/Green/");
             } else {
             	System.out.println("로그인 실패ㅠㅠ");

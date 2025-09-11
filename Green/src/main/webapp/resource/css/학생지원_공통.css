@@ -47,7 +47,6 @@
             font-size: 22px;
             font-weight: bold;
             margin-left: 200px;
-
         }
         .highlight {
             background-color: #3F97F6; /* 배경색을 파란색으로 */
@@ -153,13 +152,13 @@
         ============================ */
         .container {
             display: flex;
-            padding: 30px 60px;
-            margin-left: 200px;
-            margin-right: 200px;
+            padding: 30px 60px; 
+            box-sizing: border-box;          
         }
         .sidebar {
             width: 210px;
-            height: 500px;
+            flex-shrink: 0;     
+            margin-left: 200px;       
         }
         .sidebar h2 {
             font-size: 32px;
@@ -178,7 +177,7 @@
         }
         .content {
             flex: 1;
-            padding: 0 30px;
+            padding: 0 30px;            
         }
         .content h2 {
             margin-top: 0;
@@ -197,7 +196,7 @@
             background: #19202d;
             color: #ccc;
             padding: 20px 40px 5px;
-            font-size: 14px;
+            font-size: 14px;            
         }
         .footer-top {
             border-bottom: 1px solid #1F2838;
@@ -287,14 +286,21 @@
         
 /* ───────── 수강신청 메인 UI (content 범위) ───────── */
 
+		.reg-content {
+		    flex: 1;             
+		    min-width: 0;        
+		    padding: 0 30px;     
+		    box-sizing: border-box;		
+		    margin-right: 200px;    
+		}		
+
         /* 검색 박스 */
         .reg-content .search-box{
         display:flex;
-        justify-content:center;
+        justify-content: center;
         align-items:center;
-        gap:8px;
-       
-        margin-left: 550px;
+        gap:8px;        
+        
         }
         .reg-content .search-box select,
         .reg-content .search-box input[type="text"]{

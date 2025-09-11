@@ -4,234 +4,12 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>수강신청</title>
-    <style>        
-
-        .page {
-        width: 1100px; /* 또는 width: 1100px; */
-        margin: 0 auto;
-        background: #fff;
-        /*margin-left: -300px;*/
-        }
-
-        html, body{ 
-            overflow-x: hidden;
-        }
-
-        .page .page-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 24px 18px 10px 18px;
-        }
-
-        .page .title {
-        font-size: 20px;
-        font-weight: 700;
-        color: rgba(51, 51, 51, 1)
-        
-        }
-
-        .page .breadcrumb {
-        display: flex;
-        font-size: 14px;
-        font-weight: 350;
-        gap: 10px;
-        color: rgba(51, 51, 51, 1);
-        }
-
-        .page .breadcrumb a {
-        color: rgba(51, 51, 51, 1);
-        text-decoration: none;
-        }
-
-        .page .breadcrumb .current {
-        color: #145074 !important;
-        font-weight: 350 !important;
-        }
-
-
-        /* ===== Search Bar (right aligned) ===== */
-        .searchbar {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 10px;
-        padding: 10px 18px 12px;
-        margin-top: 5px;
-        }
-
-        .searchbar select,
-        .searchbar input {
-        height: 36px;
-        border: 1px solid var(--border);
-        padding: 0 10px;
-        background: #fff;
-        }
-
-        .searchbar input::placeholder {
-        color: #aaa;
-        }
-
-        .btn {
-        height: 36px;
-        min-width: 70px;
-        border: 1px solid rgba(26, 82, 142, 1);
-        background: rgba(26, 82, 142, 1);
-        color: #fff;
-        cursor: pointer;
-        border-radius: 0px;
-        font-weight: 350; 
-        }
-
-        
-        
-        
-        .btn-outline {
-        background: #fff;
-        color: var(--blue);
-        }
-
-        .btn-block {
-        height: 40px;
-        min-width: 100px;
-        }
-
-        /* ===== Panel (table container) ===== */
-        .panel {
-        border-top: 2px solid #d7dbe0;
-        border: 1px solid var(--border);
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
-        margin: 0 18px 18px;
-        background: #fff;
-        }
-
-        .panel .panel-head {
-        padding: 12px 14px;
-        border-bottom: 1px solid var(--border);
-        font-weight: 700;
-        color: #333;
-        }
-
-        .panel .panel-body {
-        padding: 0;
-        }
-
-        /* ===== Tables ===== */
-        .table {
-        width: 100%;
-        border-collapse: collapse;
-        
-        }
-
-
-        .table th,
-        .table td {
-        border-bottom: 1px solid #ddd;      /* 모든 셀에 선 */
-        padding: 15px;
-        text-align: center;
-        font-size: 13px;
-       
-        }
-
-        .table th {
-        background: #f7f7f8;
-        font-weight: 600;
-        color: #444;
-        }
-        .table thead th {
-        border-top: 2px solid rgba(135, 152, 163, 1);   /* 윗줄 진하게 */
-        border-bottom: 2px solid rgba(135, 152, 163, 1); /* 아랫줄 진하게 */
-        }
-
-        .table th:last-child,
-        .table td:last-child {
-        border-right: none;          /* 마지막 열은 오른쪽 선 제거 */
-        }
-
-        .searchbar {
-        display: flex;
-        justify-content: flex-end;
-        gap: 10px;
-        padding: 10px 18px 12px;
-        margin-top: 5px;   
-        }
-
-    
-        .searchbar select,
-        .searchbar input {
-        appearance: none;
-        height: 36px;
-        border: 1px solid #ccc;   /* 테두리 색 */
-        padding: 0 10px;
-        background: #fff;
-        outline: none;            /* 포커스 시 기본 파란 라인 제거 */
-        width: 150px;
-        }
-
-        .searchbar .btn:hover {
-        background: #145074;
-        border-color: #145074;
-        }
-        
-        .pagination {
-        display: flex;
-        justify-content: center;  /* 버튼들을 가운데 정렬 */
-        align-items: center;
-        gap: 4px;                 /* 버튼 간격 */
-        flex: 1;                  /* 남는 공간을 차지하게 해서 중앙 배치 */
-        }
-
-
-        .pagination-wrap {
-        display: flex;
-        justify-content: space-between; /* 좌: 페이지네이션 / 우: 등록 */
-        align-items: center;
-        margin: 20px 18px;
-        }
-
-        .pagination button {
-        width: 32px;
-        height: 32px;
-        margin: 0 2px;
-        border: 1px solid #ccc;
-        background: #fff;
-        cursor: pointer;
-        font-size: 14px;
-        color: #333;
-        }
-
-        .pagination button.active {
-        background: #145074;
-        color: #fff;
-        border-color: #145074;
-        font-weight: 350;
-        }
-
-        .pagination button img {
-        width: 14px;
-        height: 14px;
-        }
-
-         /* 왼쪽 화살표 그룹( << < ) 오른쪽에 여백 */
-        .pagination button:nth-child(2) {
-        margin-right: 12px;  /* 숫자 버튼과 간격 */
-        }
-
-        /* 오른쪽 화살표 그룹( > >> ) 왼쪽에 여백 */
-        .pagination button:nth-last-child(2) {
-        margin-left: 12px;   /* 숫자 버튼과 간격 */
-        }
-
-  </style>
-
+    <title>수강신청</title>    
     
     <link rel="stylesheet" href="/Green/resource/css/학생지원_공통.css">
 
 </head>
-<body>
-	
+<body>	
 
     <!-- ===== 상단 공통 영역 ===== -->
     <div class="topbar">
@@ -240,23 +18,94 @@
         <a href="../8회원/회원1-로그인.html">로그인</a>
         <a href="../7학생지원/학생지원1-수강신청.html">학생지원</a>
     </div>
+    
+      <header>
+        <div class="logo">
+            <span><img src="/Green/resource/images/header_logo.png" alt="그린대학교 로고"></span>
+        </div>
+        <nav>
+            <ul>
+                <li>대학소개
+                    <ul>
+	                    <li><a href="/Green/introduce/greetings.do">총장 인사말</a></li>
+	                    <li><a href="/Green/introduce/ideology.do">교육이념</a></li>
+	                    <li><a href="/Green/introduce/history.do">연혁</a></li>
+	                    <li><a href="/Green/introduce/organization.do">조직도</a></li>
+	                    <li><a href="/Green/introduce/direction.do">오시는길</a></li>
+                    </ul>
+                </li>
+                <li>입학안내
+                    <ul>
+                        <li><a href="/Green/notice/list.do?wdist=2">공지사항</a></li>
+                        <li><a href="/Green/admiss/early.do">수시모집</a></li>
+                        <li><a href="/Green/admiss/regular.do">정시모집</a></li>
+                        <li><a href="/Green/admiss/transfer.do">편입학</a></li>
+                        <li><a href="../2입학안내/입학안내5-입학상담.html">입학상담</a></li>
+                    </ul>
+                </li>
+                <li>대학·대학원
+                    <ul>
+                        <li><a href="/Green/department/view.do?college=인문사회대학">인문사회대학</a></li>
+                        <li><a href="/Green/department/view.do?college=자연과학대학">자연과학대학</a></li>
+                        <li><a href="/Green/department/view.do?college=공과대학">공과대학</a></li>
+                        <li><a href="/Green/department/view.do?college=사범대학">사범대학</a></li>
+                        <li><a href="/Green/department/view.do?college=대학원">대학원</a></li>
+                    </ul>
+                </li>
+                <li>학사안내
+                    <ul>
+                        <li><a href="../4학사안내/학사안내1-공지사항.html">공지사항</a></li>
+                        <li><a href="../4학사안내/학사안내2-학사일정.html">학사일정</a></li>
+                        <li><a href="../4학사안내/학사안내3-수강신청.html">수강신청</a></li>
+                        <li><a href="../4학사안내/학사안내4-성적.html">성적</a></li>
+                        <li><a href="../4학사안내/학사안내5-수료및졸업.html">수료 및 졸업</a></li>
+                        <li><a href="../4학사안내/학사안내6-자주하는질문.html">자주하는질문</a></li>
+                    </ul>
+                </li>
+                <li>대학생활
+                    <ul>
+                        <li><a href="../5대학생활/대학생활1-학생회소개.html">학생회소개</a></li>
+                        <li><a href="../5대학생활/대학생활2-스터디.html">스터디</a></li>
+                        <li><a href="../5대학생활/대학생활3-식단안내.html">식단안내</a></li>
+                        <li><a href="../5대학생활/대학생활4-갤러리.html">갤러리</a></li>
+                    </ul>
+                </li>
+                <li>커뮤니티
+                    <ul>
+                        <li><a href="../6커뮤니티/커뮤티니1-공지사항.html">공지사항</a></li>
+                        <li><a href="../6커뮤니티/커뮤티니2-뉴스 및 칼럼.html">뉴스 및 칼럼</a></li>
+                        <li><a href="../6커뮤니티/커뮤티니3-취업정보.html"></a>취업정보</li>
+                        <li><a href="../6커뮤니티/커뮤티니4-질문과 답변.html">질문 및 답변</a></li>
+                        <li><a href="../6커뮤니티/커뮤티니5-자료실.html">자료실</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
     <div class="breadcrumb-bar">
         <div class="breadcrumb-content">
-            <a href="../mainpage/main.html">HOME</a>
-            <span class="path-divider">></span>
+            <span class="home-icon">
+                <a href="#">
+                    <svg xmlns="/Green/resource/images/ico-home.png" height="16" viewBox="0 -960 960 960" width="16" fill="#333333">
+                        <path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/>
+                    </svg>
+                </a>
+            </span>
+            <br><span class="path-divider"> > </span><br>
             <a href="#">학생지원</a>
-            <span class="path-divider">></span>
-            <span>수강신청</span>
+            <br><span class="path-divider"> > </span><br>
+            <a href="#">수강신청</a>
         </div>
     </div>
 
     <!-- ===== 본문 ===== -->
     <div class="container">
         <aside class="sidebar">
-            <h2>학생지원</h2>
+            <h2 >학생지원</h2>
+            
             <ul>
-                <li class="highlight">수강신청</li>
+                <li class="highlight" style="border:none; border-top:3px solid #000;">수강신청</li>
                 <li><a href="/Green/students/course/list.do">수강신청내역</a></li>
                 <li>교과과정</li>
                 <li>성적조회</li>
@@ -290,6 +139,7 @@
                         <th>코드</th>
                         <th>과목명</th>
                         <th>학점</th>
+                        
                         <th>담당교수</th>
                         <th>수강인원</th>
                         <th>비고</th>
@@ -333,7 +183,39 @@
     </div>
 
     <footer>
-        <!-- 공통 footer -->
+        <div class="footer-top">
+            <ul>
+                <li><a href="#">개인정보처리방침</a></li>
+                <li><a href="#">통합정보시스템</a></li>
+                <li><a href="./학사안내2-학사일정.html ">학사일정</a></li>
+                <li><a href="#">주요업무 연락</a></li>
+                <li><a href="./학사안내1-공지사항.html">교내공지사항</a></li>
+            </ul>
+        </div>
+        <div class="footer-mid">
+            <div class="footer-info">
+                <div class="logo">
+                    <img src="/Green/resource/images/footer_logo.png" alt="그린대학교 로고">
+                </div>
+                <div class="address-info">
+                    <span>그린대학교</span>
+                    <span>[12345]부산광역시 부산진구 부전대로 123 그린대학교 / 대표전화 : 051-123-1000</span>
+                    <span>입학안내 : 051-123-1302 팩스 : 051-123-3333</span>
+                </div>
+            </div>
+            <div class="family-site-wrap">
+                <div class="family-site-btn">
+                    주요사이트
+                    <div class="arrow"></div>
+                </div>
+                <ul class="family-site-list">
+                    <li><a href="../mainpage/main.html">그린대학교</a></li>
+                    <li><a href="#">컴퓨터과학과</a></li>
+                    <li><a href="#">학생지원센터</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="copyright">copyright © Green University All rights reserved.</p>
     </footer>
 </body>
 </html>
